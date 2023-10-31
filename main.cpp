@@ -2,34 +2,38 @@
 
 using namespace std;
 
+void reverseArray(int arr[], int size) {
+    int start = 0;
+    int end = size - 1;
 
-double calculateTotalProfit(double profits[6]) {
-    double totalProfit = 0.0;
+    while (start < end) {
+        
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
 
-    
-    for (int i = 0; i < 6; i++) {
-        totalProfit += profits[i];
+        
+        start++;
+        end--;
     }
-
-    return totalProfit;
 }
 
 int main() {
     
-    double profits[6];
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int size = sizeof(arr) / sizeof(arr[0]);
 
-    
-    cout << "Enter the profits for each month:\n";
-    for (int i = 0; i < 6; i++) {
-        cout << "Month " << i + 1 << ": ";
-        cin >> profits[i];
+    cout << "Original array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
     }
 
-    
-    double totalProfit = calculateTotalProfit(profits);
+    reverseArray(arr, size);
 
-    
-    cout << "Total profit for 6 months: " << totalProfit << endl;
+    cout << "\nReversed array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }
