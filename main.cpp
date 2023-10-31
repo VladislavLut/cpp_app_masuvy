@@ -1,35 +1,33 @@
 #include <iostream>
 
 using namespace std;
+ 
+double calculatePentagonPerimeter(int sides[], int size) {
+    double perimeter = 0.0;
 
-
-double calculateTotalProfit(double profits[6]) {
-    double totalProfit = 0.0;
-
-    
-    for (int i = 0; i < 6; i++) {
-        totalProfit += profits[i];
+    for (int i = 0; i < size; i++) {
+        perimeter += sides[i];
     }
 
-    return totalProfit;
+    return perimeter;
 }
 
 int main() {
-    
-    double profits[6];
+    const int SIZE = 5;
+    int sides[SIZE];
 
     
-    cout << "Enter the profits for each month:\n";
-    for (int i = 0; i < 6; i++) {
-        cout << "Month " << i + 1 << ": ";
-        cin >> profits[i];
+    cout << "Enter the lengths of the pentagon's sides:\n";
+    for (int i = 0; i < SIZE; i++) {
+        cout << "Side " << i + 1 << ": ";
+        cin >> sides[i];
     }
 
     
-    double totalProfit = calculateTotalProfit(profits);
+    double perimeter = calculatePentagonPerimeter(sides, SIZE);
 
     
-    cout << "Total profit for 6 months: " << totalProfit << endl;
+    cout << "The perimeter of the pentagon is: " << perimeter << endl;
 
     return 0;
 }
